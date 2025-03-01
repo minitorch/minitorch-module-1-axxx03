@@ -62,6 +62,10 @@ def log(x: float):
 def exp(x: float):
     return math.exp(x)
 
+def exp_back(x: float, y: float):
+    # exp_back - Computes the derivative of exp times a second arg
+    return y * exp(x)
+
 def log_back(x: float, y: float):
     # log_back - Computes the derivative of log times a second arg
     return y / x
@@ -83,7 +87,7 @@ def mul(x: float, y: float):
     return x * y
 
 def neg(x: float):
-    return -x
+    return -1.0 * x
 
 def prod(list1: List):
     res = 1.0
@@ -102,6 +106,10 @@ def relu_back(x: float, y: float):
 def sigmoid(x: float):
     # sigmoid - Calculates the sigmoid function
     return 1.0 / (1.0 + math.exp(-x))
+
+def sigmoid_back(x: float, y: float):
+    # sigmoid_back - Computes the derivative of sigmoid times a second arg
+    return sigmoid(x) * (1 - sigmoid(x)) * y
 
 def is_close(x: float, y: float):
     return math.fabs(x - y) < EPS
